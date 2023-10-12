@@ -1,1 +1,1 @@
-# Merklerex Tradind Simulator
+# Merklerex Trading Simulator
