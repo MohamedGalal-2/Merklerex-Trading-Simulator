@@ -34,8 +34,9 @@ void MerkelMain::init()
 
 void MerkelMain::loadOrderBook()
 {
-	orders.push_back(orderBookEntry(1000, 0.5, "2017-01-01 10:34:22", "BTCUSD", orderBookType::bid));
-	orders.push_back(orderBookEntry(1010, 0.5, "2017-01-01 10:34:22", "BTCUSD", orderBookType::bid));
+	std::string path;
+	path = "C:/Users/lolo7/Desktop/Projects/CPP Projects/OOP/OOP/orderBookDataSet.csv";
+	orders = CSVReader::readCSV(path);
 }
 
 void MerkelMain::printMenu()
@@ -62,11 +63,26 @@ void MerkelMain::printHelp()
 
 void MerkelMain::printMarketStats()
 {
-	blue();
-	std::cout << "Order Book contains (" << orders.size() << ") entries." << endl;
 	magenta();
 	std::cout << "The exchange stats are as follows:" << endl;
+	blue();
+	std::cout << "Order Book contains (" << orders.size() << ") entries." << endl;
 	reset();
+
+	unsigned int bidsNumber = 0;
+	unsigned int asksNumber = 0;
+	for (orderBookEntry& e : orders)
+	{
+		if (e.orderType == orderBookType::ask)
+		{
+			asksNumber++;
+		}
+		else if (e.orderType == orderBookType::bid)
+		{
+			bidsNumber++;
+		}
+	}
+	std::cout << "Order Book contains (" << asksNumber << ") asks and (" << bidsNumber << ") bids." << endl;
 }
 
 void MerkelMain::makeOffer()

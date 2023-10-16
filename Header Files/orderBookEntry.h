@@ -6,14 +6,14 @@
 /*Includes Section*/
 #include <string>
 #include <vector>
-
 using namespace std;
 
 // Variables for the order book
 enum class orderBookType // Type of the ask/bid
 {
 	bid,
-	ask
+	ask,
+	unknown
 };
 // Order book entry class
 class orderBookEntry
@@ -26,6 +26,9 @@ public:
 		std::string _timestamp,
 		std::string _product,
 		orderBookType _orderType);
+
+	static orderBookType stringToOrderBookType(std::string string);
+
 	// Getters
 	orderBookType orderType;	// Type of the ask/bid
 	double price;				// Price of the ask/bid
@@ -33,7 +36,6 @@ public:
 	std::string timestamp;		// Timestamp of the ask/bid	
 	std::string product;		// Product of the ask/bid
 };
-
 
 #endif // _ORDERBOOKENTRY_H_
 

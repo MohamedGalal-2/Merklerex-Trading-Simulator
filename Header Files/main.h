@@ -6,10 +6,14 @@
 /*Includes Section*/
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
 #include "..\Header Files\colors.h"
-#include "..\Header Files\menu.h"
 #include "..\Header Files\MerkelMain.h"
+#include "..\Header Files\CSVReader.h"
+#include "..\Header Files\orderBookEntry.h"
 using namespace std;
+
 
 #endif // _MAIN_H_
 

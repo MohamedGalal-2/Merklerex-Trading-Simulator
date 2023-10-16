@@ -12,5 +12,24 @@ orderBookEntry::orderBookEntry(
 	product(_product),
 	orderType(_orderType)
 {
+	// empty
+}
 
+orderBookType orderBookEntry::stringToOrderBookType(std::string string)
+{
+	orderBookType orderType;
+	if (string == "ask")
+	{
+		orderType = orderBookType::ask;
+	}
+	else if (string == "bid")
+	{
+		orderType = orderBookType::bid;
+	}
+	else
+	{
+		orderType = orderBookType::unknown;
+	}
+
+	return orderType;
 }
