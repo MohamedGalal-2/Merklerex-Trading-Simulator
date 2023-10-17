@@ -22,7 +22,7 @@ std::vector<orderBookEntry> CSVReader::readCSV(std::string csvFilename)
 			}
 			catch (const std::exception& e)
 			{
-				cout << "CSVReader::readCSV Bad line!!" << line << std::endl;
+				// cout << "CSVReader::readCSV Bad line!!" << line << std::endl;
 				continue;
 			}
 			orderBookEntry entry = parseLine(parse(line, ','));
@@ -32,7 +32,7 @@ std::vector<orderBookEntry> CSVReader::readCSV(std::string csvFilename)
 	} // end of reader is open if
 	else
 	{
-		cout << "Bad data file! Cannot access!" << endl;
+		// cout << "Bad data file! Cannot access!" << endl;
 		return entries;
 	}
 
@@ -87,8 +87,8 @@ orderBookEntry CSVReader::parseLine(std::vector<std::string> tokens)
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Bad Float!!" << tokens[3] << std::endl;
-		std::cout << "Bad Float!!" << tokens[4] << std::endl;
+		// std::cout << "Bad Float!!" << tokens[3] << std::endl;
+		// std::cout << "Bad Float!!" << tokens[4] << std::endl;
 		throw;
 	}
 
@@ -99,6 +99,35 @@ orderBookEntry CSVReader::parseLine(std::vector<std::string> tokens)
 		tokens[0],
 		tokens[1],
 		orderBookEntry::stringToOrderBookType(tokens[2])
+	};
+
+	return entry;
+}
+
+orderBookEntry CSVReader::parseLine(std::string price, std::string amount,
+	std::string timestamp, std::string product, orderBookType orderType)
+{
+	double _price, _amount;
+
+	try
+	{
+		_price = std::stod(price);
+		_amount = std::stod(amount);
+	}
+	catch (const std::exception& e)
+	{
+		// std::cout << "Bad Float!!" << price << std::endl;
+		// std::cout << "Bad Float!!" << amount << std::endl;
+		throw;
+	}
+
+	orderBookEntry entry
+	{
+		_price,
+		_amount,
+		timestamp,
+		product,
+		orderType
 	};
 
 	return entry;

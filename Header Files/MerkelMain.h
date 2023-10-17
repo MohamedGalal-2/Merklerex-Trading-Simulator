@@ -7,7 +7,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "orderBookEntry.h"
+#include "..\Header Files\orderBookEntry.h"
+#include "..\Header Files\colors.h"
+#include "..\Header Files\CSVReader.h"
+#include "..\Header Files\orderBook.h"
 using namespace std;
 
 class MerkelMain
@@ -21,18 +24,21 @@ public:
 	  */
 	void init();
 private:
-	void loadOrderBook();
 	void printHelp();
 	void printMarketStats();
-	void makeOffer();
+	void makeAsk();
 	void enterBid();
 	void printWallet();
 	void gotoNextTimeFrame();
 	void printExit();
 	void printMenu();
-	int  getUserOption(int userOption);
+	int  getUserOption();
 	void processUserOption(int userOption);
 
+	std::string currentTime;
+	std::string nextTime;
+
+	orderBook orderBook{ "C:/Users/lolo7/Desktop/Projects/CPP Projects/OOP/OOP/orderBookDataSet.csv" };
 	std::vector<orderBookEntry> orders;		// Vector of order book entries
 };
 

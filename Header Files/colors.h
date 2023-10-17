@@ -4,7 +4,7 @@
 #define _COLORS_H_
 
 /*Includes Section*/
-#include "main.h"
+#include <iostream>
 
 /*Functions Decleration Section*/
 void red();

@@ -6,6 +6,8 @@
 /*Includes Section*/
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 // Variables for the order book
@@ -28,6 +30,11 @@ public:
 		orderBookType _orderType);
 
 	static orderBookType stringToOrderBookType(std::string string);
+
+	static bool compareTimestamp(orderBookEntry& order1, orderBookEntry& order2)
+	{
+		return order1.timestamp < order2.timestamp;
+	}
 
 	// Getters
 	orderBookType orderType;	// Type of the ask/bid

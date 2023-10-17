@@ -12,8 +12,8 @@
 #include "..\Header Files\MerkelMain.h"
 #include "..\Header Files\CSVReader.h"
 #include "..\Header Files\orderBookEntry.h"
+#include "..\Header Files\orderBook.h"
 using namespace std;
-
 
 #endif // _MAIN_H_
 
