@@ -57,8 +57,8 @@ To run the simulator, execute the compiled binary:
     ./simulator
 
 ### Usage
-<pre>
 The simulator provides a command-line interface (CLI) for interacting with the trading platform. Once the simulator is running, you can use various commands to perform trading activities. Here are some examples:
+<pre>
 1. Print help:
 2. Print exchange stats: View the current order book
 3. Make an offer: Place a sell order
