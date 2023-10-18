@@ -1,7 +1,5 @@
 # Merklerex Trading Simulator
 
-https://www.coursera.org/specializations/object-oriented-programming-s12n
-
 ## Table of Contents
 - [About the Course](#About-the-Course)
 - [Description](#Description)
