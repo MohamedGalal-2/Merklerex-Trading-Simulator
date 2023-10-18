@@ -11,6 +11,7 @@
   - [Cloning the Repository](#Cloning-the-Repository)
   - [Compiling the Code](#Compiling-the-Code)
   - [Running the Simulator](#Running-the-Simulator)
+- [Usage](#Usage)
 - [Contribution](#Contribution)
 - [License](#License)
 
