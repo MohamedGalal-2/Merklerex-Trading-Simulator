@@ -8,8 +8,8 @@
 - [Features](#Features)
 - [Prerequisites](#Prerequisites)
 - [Getting Started](#Getting-Started)
-  -[Cloning the Repository](#Cloning-the-Repository)
-  -[Compiling the Code](#Compiling-the-Code)
+  - [Cloning the Repository](#Cloning-the-Repository)
+  - [Compiling the Code](#Compiling-the-Code)
 - [Contribution](#Contribution)
 - [License](#License)
 
