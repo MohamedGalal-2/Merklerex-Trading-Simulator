@@ -35,6 +35,14 @@ public:
 	{
 		return order1.timestamp < order2.timestamp;
 	}
+	static bool compareByPriceAsc(orderBookEntry& order1, orderBookEntry& order2)
+	{
+		return order1.price < order2.price;
+	}
+	static bool compareByPriceDesc(orderBookEntry& order1, orderBookEntry& order2)
+	{
+		return order1.price > order2.price;
+	}
 
 	// Getters
 	orderBookType orderType;	// Type of the ask/bid

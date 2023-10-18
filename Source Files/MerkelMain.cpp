@@ -42,7 +42,7 @@ void MerkelMain::printMenu()
 		<< "3. Make an offer" << endl
 		<< "4. Make a bid" << endl
 		<< "5. Print wallet" << endl
-		<< "6. Continue" << endl
+		<< "6. Jump to the next time frame" << endl
 		<< "7. Exit" << endl;
 	cout << "======================" << endl;
 	reset();
@@ -178,8 +178,14 @@ void MerkelMain::printWallet()
 void MerkelMain::gotoNextTimeFrame()
 {
 	currentTime = orderBook.getNextTime(currentTime);
+	std::vector<orderBookEntry> sales = orderBook.matchingEngine("ETH/BTC", currentTime);
+	std::cout << "Sales: " << sales.size() << endl;
+	for (orderBookEntry& sale : sales)
+	{
+		std::cout << "Sale: " << sale.price << " " << sale.amount << endl;
+	}
 	magenta();
-	std::cout << "You can continue here." << endl;
+	std::cout << "Moving to next timeframe: " << currentTime << endl;
 	reset();
 }
 
