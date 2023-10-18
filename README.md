@@ -5,6 +5,11 @@
 - [Description](#Description)
 - [Resources](#Resources)
 - [Repository Structure](#Repository-Structure)
+- [Features](#Features)
+- [Prerequisites](#Prerequisites)
+- [Getting Started](#Getting-Started)
+    -[Cloning the Repository](#Cloning-the-Repository)
+    -[Compiling the Code](#Compiling-the-Code)
 - [Contribution](#Contribution)
 - [License](#License)
 
@@ -22,3 +27,35 @@ This GitHub repository serves as a home for all the code done by me to this proj
 * Source Files: This folder contains the .cpp files that contain the code of the project.
 * Header Files: This folder contains the .h files that contain the headers of the .cpp files.
 * orderBookDataSet.csv: This file is a comma separated values data that's is used to test the project with.
+
+### Features
+* Simulate trading activities on the Merklerex platform
+* View account balance and market status.
+* Perform buy/sell orders.
+* Simulate real-time market price fluctuations
+
+### Prerequisites
+1. C++ development environment
+2. C++ compiler (e.g., GCC, Visual Studio, XCode)
+3. Git (optional, for cloning the repository)
+
+### Getting Started
+#### Cloning the Repository
+To clone the repository, run the following command:
+
+    git clone https://github.com/MohamedGalal-2/Merklerex-Trading-Simulator.git
+#### Compiling the Code
+Navigate to the project directory and compile the code using the following command:
+
+    g++ -o simulator main.cpp orderBook.cpp MekelMain.cpp colors.cpp orderBookEntry.cpp CSVReader.cpp -std=c++11
+
+#### Running the Simulator
+To run the simulator, execute the compiled binary:
+    
+    ./simulator
+
+### Contribution
+Contributions to this repository are always welcome. If you would like to add a new solution or improve an existing one, feel free to submit a pull request. Please ensure that the code adheres to the repository's coding standards.
+
+### License
+This repository contains contains my own work during studying this course. Feel free to use for any purpose.
