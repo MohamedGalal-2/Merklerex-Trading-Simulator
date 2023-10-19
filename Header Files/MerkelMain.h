@@ -11,6 +11,7 @@
 #include "..\Header Files\colors.h"
 #include "..\Header Files\CSVReader.h"
 #include "..\Header Files\orderBook.h"
+#include "..\Header Files\wallet.h"
 using namespace std;
 
 class MerkelMain
@@ -41,6 +42,8 @@ private:
 	// orderBook orderBook{ "C:/Users/lolo7/Desktop/Projects/CPP Projects/OOP/OOP/orderBookDataSet.csv" };
 	orderBook orderBook{ "C:/Users/lolo7/Desktop/orderBookDataSet.csv" };
 	std::vector<orderBookEntry> orders;		// Vector of order book entries
+
+	wallet wallet;
 };
 
 #endif // _MERKELMAIN_H_

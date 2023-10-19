@@ -11,6 +11,8 @@ void MerkelMain::init()
 	int input = 0;
 	currentTime = orderBook.getEarliestTime();
 
+	wallet.insrtIntoWallet("BTC", 10);
+
 	// Print welcome message
 	cyan();
 	std::cout << "Welcome to the Merklerex exchange!" << endl;
@@ -74,27 +76,13 @@ void MerkelMain::printMarketStats()
 		std::cout << "Min ask: " << orderBook::getLowPrice(enteries) << std::endl;
 		std::cout << "Total ask amount: " << orderBook::getAmountAsk(enteries) << std::endl;
 	}
-
-	//unsigned int bidsNumber = 0;
-	//unsigned int asksNumber = 0;
-	//for (orderBookEntry& e : orders)
-	//{
-	//	if (e.orderType == orderBookType::ask)
-	//	{
-	//		asksNumber++;
-	//	}
-	//	else if (e.orderType == orderBookType::bid)
-	//	{
-	//		bidsNumber++;
-	//	}
-	//}
-	//std::cout << "Order Book contains (" << asksNumber << ") asks and (" << bidsNumber << ") bids." << endl;
 }
 
 void MerkelMain::makeAsk()
 {
 	magenta();
-	std::cout << "Make an ask - enter the amount: product,price,amount, eg. ETH/BTC,200.02,0.5 " << endl;
+	std::cout << "Make an ask - enter the amount: product,price,amount, eg. ETH/BTC,1000,0.5 " << endl;
+	reset();
 	std::string input;
 
 	// Get user input
@@ -113,7 +101,20 @@ void MerkelMain::makeAsk()
 		try
 		{
 			orderBookEntry entry = CSVReader::parseLine(tokens[1], tokens[2], currentTime, tokens[0], orderBookType::ask);
-			orderBook.insertOrder(entry);
+			if (wallet.isEnough(entry))
+			{
+				green();
+				std::cout << "Your offer has been added to the order book." << endl;
+				reset();
+				orderBook.insertOrder(entry);
+			}
+			else
+			{
+				red();
+				std::cout << "Wallet has insufficient fund." << endl;
+				reset();
+			}
+
 		}
 		catch (const std::exception& e)
 		{
@@ -123,17 +124,13 @@ void MerkelMain::makeAsk()
 			return;
 		}
 	}
-
-
-	std::cout << "You entered: " << input << endl;
-
-	reset();
 }
 
 void MerkelMain::enterBid()
 {
 	magenta();
-	std::cout << "Make a bid - enter the amount: product,price,amount, eg. ETH/BTC,200.02,0.5 " << endl;
+	std::cout << "Make a bid - enter the amount: product,price,amount, eg. ETH/BTC,1000,0.5 " << endl;
+	reset();
 	std::string input;
 
 	// Get user input
@@ -152,7 +149,19 @@ void MerkelMain::enterBid()
 		try
 		{
 			orderBookEntry entry = CSVReader::parseLine(tokens[1], tokens[2], currentTime, tokens[0], orderBookType::bid);
-			orderBook.insertOrder(entry);
+			if (wallet.isEnough(entry))
+			{
+				green();
+				std::cout << "Your offer has been added to the order book." << endl;
+				reset();
+				orderBook.insertOrder(entry);
+			}
+			else
+			{
+				red();
+				std::cout << "Wallet has insufficient fund." << endl;
+				reset();
+			}
 		}
 		catch (const std::exception& e)
 		{
@@ -162,16 +171,14 @@ void MerkelMain::enterBid()
 			return;
 		}
 	}
-	blue();
-	std::cout << "You entered: " << input << endl;
-	reset();
 }
 
 void MerkelMain::printWallet()
 {
-	std::cout << "This is the print wallet section." << endl;
 	magenta();
-	std::cout << "You can print your wallet here." << endl;
+	std::cout << "Your wallet has: " << std::endl;
+	blue();
+	std::cout << wallet.toString() << std::endl;
 	reset();
 }
 

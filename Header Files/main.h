@@ -13,6 +13,7 @@
 #include "..\Header Files\CSVReader.h"
 #include "..\Header Files\orderBookEntry.h"
 #include "..\Header Files\orderBook.h"
+#include "..\Header Files\wallet.h"
 using namespace std;
 
 #endif // _MAIN_H_
