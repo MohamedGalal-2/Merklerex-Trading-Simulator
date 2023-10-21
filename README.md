@@ -1,6 +1,6 @@
 # Merklerex Trading Simulator
 
-[Header](https://github.com/MohamedGalal-2/Merklerex-Trading-Simulator/blob/main/Headerr.png?raw=true)
+![Header](https://github.com/MohamedGalal-2/Merklerex-Trading-Simulator/blob/main/Headerr.png?raw=true)
 
 ## Table of Contents
 - [About the Course](#About-the-Course)
