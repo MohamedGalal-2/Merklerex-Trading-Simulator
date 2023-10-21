@@ -17,6 +17,12 @@ orderBookEntry::orderBookEntry(
 	// empty
 }
 
+/**
+  * @brief Converts a string to an orderBookType
+  * @param string The string to convert
+  * @return The orderBookType
+  * @note If the string is not a valid orderBookType, returns orderBookType::unknown
+  */
 orderBookType orderBookEntry::stringToOrderBookType(std::string string)
 {
 	orderBookType orderType;

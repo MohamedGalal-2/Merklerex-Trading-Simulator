@@ -1,11 +1,17 @@
 /*Includes Section*/
 #include "..\Header Files\CSVReader.h"
 
+/** Constructor */
 CSVReader::CSVReader()
 {
 
 }
 
+/**
+  * @brief  This function reads a CSV file and returns a vector of orderBookEntry objects
+  * @param  csvFile - The name of the CSV file to read
+  * @return A vector of orderBookEntry objects
+  */
 std::vector<orderBookEntry> CSVReader::readCSV(std::string csvFilename)
 {
 	std::vector<orderBookEntry> entries;
@@ -39,6 +45,12 @@ std::vector<orderBookEntry> CSVReader::readCSV(std::string csvFilename)
 	return entries;
 }
 
+/**
+  * @brief  This function parses a CSV line and returns a vector of strings
+  * @param  csvLine - The CSV line to parse
+  * @param  separator - The character used to separate the CSV fields
+  * @return A vector of strings
+  */
 std::vector<std::string> CSVReader::parse(std::string csvLine, char separator)
 {
 	std::vector<std::string> tokens;
@@ -70,6 +82,15 @@ std::vector<std::string> CSVReader::parse(std::string csvLine, char separator)
 	return tokens;
 }
 
+/**
+  * @brief  This function parses a CSV line and returns an orderBookEntry object
+  * @param  price - The price of the order
+  * @param  amount - The amount of the order
+  * @param  timestamp - The timestamp of the order
+  * @param  product - The product of the order
+  * @param  orderType - The type of the order
+  * @return An orderBookEntry object
+  */
 orderBookEntry CSVReader::parseLine(std::vector<std::string> tokens)
 {
 	double price, amount;
@@ -104,6 +125,11 @@ orderBookEntry CSVReader::parseLine(std::vector<std::string> tokens)
 	return entry;
 }
 
+/**
+  * @brief  This function parses a vector of strings and returns an orderBookEntry object
+  * @param  strings - The vector of strings to parse
+  * @return An orderBookEntry object
+  */
 orderBookEntry CSVReader::parseLine(std::string price, std::string amount,
 	std::string timestamp, std::string product, orderBookType orderType)
 {

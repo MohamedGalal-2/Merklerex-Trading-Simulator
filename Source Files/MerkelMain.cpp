@@ -1,11 +1,17 @@
 #include "..\Header Files\MerkelMain.h"
 
+/** Constructor */
 MerkelMain::MerkelMain()
 {
 
 }
 
-void MerkelMain::init()
+/**
+  * @brief This function is used to initialize the MerkelMain class
+  * @param void
+  * @return void
+  */
+void MerkelMain::init(void)
 {
 	// Initialize variables
 	int input = 0;
@@ -34,7 +40,12 @@ void MerkelMain::init()
 	}
 }
 
-void MerkelMain::printMenu()
+/**
+  * @brief This function is used to print the menu
+  * @param void
+  * @return void
+  */
+void MerkelMain::printMenu(void)
 {
 	// Print options
 	std::cout << "======================" << endl;
@@ -51,6 +62,11 @@ void MerkelMain::printMenu()
 	reset();
 }
 
+/**
+  * @brief This function is used to print the menu
+  * @param void
+  * @return void
+  */
 void MerkelMain::printHelp()
 {
 	std::cout << "This is the help section." << endl;
@@ -59,6 +75,11 @@ void MerkelMain::printHelp()
 	reset();
 }
 
+/**
+  * @brief This function is used to print the market stats
+  * @param void
+  * @return void
+  */
 void MerkelMain::printMarketStats()
 {
 	magenta();
@@ -82,6 +103,11 @@ void MerkelMain::printMarketStats()
 	}
 }
 
+/**
+  * @brief This function is used to enter an ask order to the book
+  * @param void
+  * @return void
+  */
 void MerkelMain::makeAsk()
 {
 	magenta();
@@ -132,6 +158,11 @@ void MerkelMain::makeAsk()
 	}
 }
 
+/**
+  * @brief This function is used to enter a bid order to the book
+  * @param void
+  * @return void
+  */
 void MerkelMain::enterBid()
 {
 	magenta();
@@ -181,6 +212,11 @@ void MerkelMain::enterBid()
 	}
 }
 
+/**
+  * @brief This function is used to print the wallet of the user
+  * @param void
+  * @return void
+  */
 void MerkelMain::printWallet()
 {
 	magenta();
@@ -190,6 +226,11 @@ void MerkelMain::printWallet()
 	reset();
 }
 
+/**
+  * @brief This function is used to skip to the next time frame and process the exhange of orders
+  * @param void
+  * @return void
+  */
 void MerkelMain::gotoNextTimeFrame()
 {
 	// Print current time
@@ -214,6 +255,11 @@ void MerkelMain::gotoNextTimeFrame()
 	reset();
 }
 
+/**
+  * @brief This function is used to print the exit message
+  * @param void
+  * @return void
+  */
 void MerkelMain::printExit()
 {
 	red();
@@ -221,6 +267,11 @@ void MerkelMain::printExit()
 	reset();
 }
 
+/**
+  * @brief This function is used to get the user option
+  * @param void
+  * @return void
+  */
 int MerkelMain::getUserOption()
 {
 	int userOption = 0;
@@ -244,6 +295,11 @@ int MerkelMain::getUserOption()
 	return userOption;
 }
 
+/**
+  * @brief This function is used to process the user option
+  * @param userOption - the user input option
+  * @return void
+  */
 void MerkelMain::processUserOption(int userOption)
 {
 	// Check if user input is valid

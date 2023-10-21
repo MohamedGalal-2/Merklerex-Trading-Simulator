@@ -32,16 +32,42 @@ public:
 		orderBookType _orderType,
 		std::string username = "dataset");
 
+	/**
+	  * @brief Converts a string to an orderBookType
+	  * @param string The string to convert
+	  * @return The orderBookType
+	  * @note If the string is not a valid orderBookType, returns orderBookType::unknown
+	  */
 	static orderBookType stringToOrderBookType(std::string string);
 
+	/**
+	  * @brief This function compares two orderBookEntry objects by their timestamp
+	  * @param order1 The first orderBookEntry
+	  * @param order2 The second orderBookEntry
+	  * @return True if order1.timestamp < order2.timestamp, false otherwise
+	  */
 	static bool compareTimestamp(orderBookEntry& order1, orderBookEntry& order2)
 	{
 		return order1.timestamp < order2.timestamp;
 	}
+
+	/**
+		  * @brief This function compares two orderBookEntry objects by their price
+		  * @param order1 The first orderBookEntry
+		  * @param order2 The second orderBookEntry
+		  * @return True if order1.price < order2.price, false otherwise
+		  */
 	static bool compareByPriceAsc(orderBookEntry& order1, orderBookEntry& order2)
 	{
 		return order1.price < order2.price;
 	}
+
+	/**
+		  * @brief This function compares two orderBookEntry objects by their price
+		  * @param order1 The first orderBookEntry
+		  * @param order2 The second orderBookEntry
+		  * @return True if order1.price > order2.price, false otherwise
+		  */
 	static bool compareByPriceDesc(orderBookEntry& order1, orderBookEntry& order2)
 	{
 		return order1.price > order2.price;

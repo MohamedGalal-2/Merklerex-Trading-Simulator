@@ -17,7 +17,9 @@
 class wallet
 {
 public:
+	/** Constructor */
 	wallet();
+
 	/**
 	  * @brief This function will insert currency into the wallet
 	  * @param type - The type of the product
@@ -61,7 +63,6 @@ public:
 	/**
 	  * @brief This function generates a string representation of the wallet
 	  * @return std::string - The string representation of the wallet
-	  * @note The string representation of the wallet is in the format of:
 	  */
 	std::string toString();
 

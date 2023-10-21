@@ -17,23 +17,85 @@ using namespace std;
 class MerkelMain
 {
 public:
+	/** Constructor */
 	MerkelMain();
+
 	/**
 	  * @brief This function is used to initialize the MerkelMain class
-	  * @param None
-	  * @return None
+	  * @param void
+	  * @return void
 	  */
-	void init();
+	void init(void);
+
 private:
-	void printHelp();
-	void printMarketStats();
-	void makeAsk();
-	void enterBid();
-	void printWallet();
-	void gotoNextTimeFrame();
-	void printExit();
-	void printMenu();
-	int  getUserOption();
+	/**
+	  * @brief This function is used to print the menu
+	  * @param void
+	  * @return void
+	  */
+	void printHelp(void);
+
+	/**
+	  * @brief This function is used to print the market stats
+	  * @param void
+	  * @return void
+	  */
+	void printMarketStats(void);
+
+	/**
+	  * @brief This function is used to enter an ask order to the book
+	  * @param void
+	  * @return void
+	  */
+	void makeAsk(void);
+
+	/**
+	  * @brief This function is used to enter a bid order to the book
+	  * @param void
+	  * @return void
+	  */
+	void enterBid(void);
+
+	/**
+	  * @brief This function is used to print the wallet of the user
+	  * @param void
+	  * @return void
+	  */
+	void printWallet(void);
+
+	/**
+	  * @brief This function is used to skip to the next time frame and process the exhange of orders
+	  * @param void
+	  * @return void
+	  */
+	void gotoNextTimeFrame(void);
+
+	/**
+	  * @brief This function is used to print the exit message
+	  * @param void
+	  * @return void
+	  */
+	void printExit(void);
+
+	/**
+	  * @brief This function is used to print the menu
+	  * @param void
+	  * @return void
+	  */
+	void printMenu(void);
+
+	/**
+	  * @brief This function is used to get the user option
+	  * @param void
+	  * @return int
+	  */
+	int  getUserOption(void);
+
+	/**
+	  * @brief This function is used to process the user option
+	  * @param int
+	  * @return void
+	  */
 	void processUserOption(int userOption);
 
 	std::string currentTime;

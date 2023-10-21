@@ -1,9 +1,16 @@
 #include "..\Header Files\wallet.h"
 
+/** Constructor */
 wallet::wallet()
 {
 };
 
+/**
+  * @brief This function will insert currency into the wallet
+  * @param type - The type of the product
+  * @param amount - The amount of the product
+  * @return void
+  */
 void wallet::insrtIntoWallet(std::string type, double amount)
 {
 	double balance = 0.0;
@@ -25,6 +32,12 @@ void wallet::insrtIntoWallet(std::string type, double amount)
 	currencies[type] = balance;
 }
 
+/**
+  * @brief This function will remove currency from the wallet
+  * @param type - The type of the product
+  * @param amount - The amount of the product
+  * @return bool - True if the wallet has enough money, false if not
+  */
 bool wallet::removeFromWallet(std::string type, double amount)
 {
 	bool state = false;
@@ -57,6 +70,13 @@ bool wallet::removeFromWallet(std::string type, double amount)
 	return state;
 }
 
+/**
+  * @brief This function will check if the wallet has enough money to buy/sell
+  * @param type - The type of the currency
+  * @param amount - The amount of the currency
+  * @return bool - True if the wallet has enough money, false if not
+  * @note If the wallet does not have enough money, it will print an error message
+  */
 bool wallet::checkWallet(std::string type, double amount)
 {
 	bool result = false;
@@ -75,6 +95,11 @@ bool wallet::checkWallet(std::string type, double amount)
 	return result;
 }
 
+/**
+  * @brief This function will check if the wallet has enough money to ask or bid
+  * @param order - The order that the user wants to ask or bid
+  * @return bool - True if the wallet has enough money, false if not
+  */
 bool wallet::isEnough(orderBookEntry order)
 {
 	bool result = false;
@@ -110,6 +135,10 @@ bool wallet::isEnough(orderBookEntry order)
 	return result;
 }
 
+/**
+  * @brief This function generates a string representation of the wallet
+  * @return std::string - The string representation of the wallet
+  */
 std::string wallet::toString()
 {
 	std::string str;
@@ -126,6 +155,12 @@ std::string wallet::toString()
 	return str;
 }
 
+/**
+  * @brief This function will update the wallet after a transaction
+  * @param order - The order that the user wants to ask or bid
+  * @return void
+  * @note This function will call the checkWallet function to check if the wallet has enough money to ask or bid
+  */
 void wallet::processSale(orderBookEntry& sale)
 {
 	bool result = false;
