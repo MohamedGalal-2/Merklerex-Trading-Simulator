@@ -77,4 +77,4 @@ private:
 	std::map<std::string, double> currencies;
 };
 
-#endif _WALLET_H_
+#endif // _WALLET_H_
