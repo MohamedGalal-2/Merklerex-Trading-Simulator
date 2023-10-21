@@ -53,12 +53,12 @@ To clone the repository, run the following command:
 #### Compiling the Code
 Navigate to the project directory and compile the code using the following command:
 
-    g++ -o simulator main.cpp orderBook.cpp MekelMain.cpp colors.cpp orderBookEntry.cpp CSVReader.cpp -std=c++11
+    g++ --std=c++11 "Source Files\colors.cpp" "Source Files\CSVReader.cpp" "Source Files\main.cpp" "Source Files\MerkelMain.cpp" "Source Files\orderBook.cpp" "Source Files\orderBookEntry.cpp" "Source Files\wallet.cpp" -o Merklex-Trade.exe
 
 #### Running the Simulator
 To run the simulator, execute the compiled binary:
     
-    ./simulator
+    ./Merklex-Trade
 
 ### Usage
 The simulator provides a command-line interface (CLI) for interacting with the trading platform. Once the simulator is running, you can use various commands to perform trading activities. Here are some examples:
