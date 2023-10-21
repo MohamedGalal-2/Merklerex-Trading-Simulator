@@ -58,7 +58,7 @@ Navigate to the project directory and compile the code using the following comma
 #### Running the Simulator
 To run the simulator, execute the compiled binary:
     
-    ./simulator
+    ./Merklex-Trade
 
 ### Usage
 The simulator provides a command-line interface (CLI) for interacting with the trading platform. Once the simulator is running, you can use various commands to perform trading activities. Here are some examples:
