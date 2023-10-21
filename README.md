@@ -1,5 +1,7 @@
 # Merklerex Trading Simulator
 
+Merklerex Trading Simulator is an interactive software platform that allows users to practice their trading skills in a simulated environment. Designed for both new and experienced traders, it provides a realistic trading experience without the risk of losing real money.
+
 ![Header](https://github.com/MohamedGalal-2/Merklerex-Trading-Simulator/blob/main/Headerr.png?raw=true)
 
 ## Table of Contents
