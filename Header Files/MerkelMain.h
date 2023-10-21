@@ -39,8 +39,8 @@ private:
 	std::string currentTime;
 	std::string nextTime;
 
-	// orderBook orderBook{ "C:/Users/lolo7/Desktop/Projects/CPP Projects/OOP/OOP/orderBookDataSet.csv" };
-	orderBook orderBook{ "C:/Users/lolo7/Desktop/orderBookDataSet.csv" };
+	orderBook orderBook{ "C:/Users/lolo7/Desktop/Projects/CPP Projects/OOP/OOP/orderBookDataSet.csv" };
+	// orderBook orderBook{ "C:/Users/lolo7/Desktop/orderBookDataSet.csv" };
 	std::vector<orderBookEntry> orders;		// Vector of order book entries
 
 	wallet wallet;

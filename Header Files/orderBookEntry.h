@@ -15,6 +15,8 @@ enum class orderBookType // Type of the ask/bid
 {
 	bid,
 	ask,
+	bidsale,
+	asksale,
 	unknown
 };
 // Order book entry class
@@ -27,7 +29,8 @@ public:
 		double _amount,
 		std::string _timestamp,
 		std::string _product,
-		orderBookType _orderType);
+		orderBookType _orderType,
+		std::string username = "dataset");
 
 	static orderBookType stringToOrderBookType(std::string string);
 
@@ -45,11 +48,12 @@ public:
 	}
 
 	// Getters
-	orderBookType orderType;	// Type of the ask/bid
-	double price;				// Price of the ask/bid
-	double amount;				// Amount of the ask/bid
-	std::string timestamp;		// Timestamp of the ask/bid	
-	std::string product;		// Product of the ask/bid
+	orderBookType orderType;
+	double price;
+	double amount;
+	std::string timestamp;
+	std::string product;
+	std::string username;
 };
 
 #endif // _ORDERBOOKENTRY_H_

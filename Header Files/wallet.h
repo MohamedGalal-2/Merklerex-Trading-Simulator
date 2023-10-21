@@ -42,6 +42,15 @@ public:
 	  * @note If the wallet does not have enough money, it will print an error message
 	  */
 	bool checkWallet(std::string type, double amount);
+
+	/**
+	  * @brief This function will update the wallet after a transaction
+	  * @param order - The order that the user wants to ask or bid
+	  * @return void
+	  * @note This function will call the checkWallet function to check if the wallet has enough money to ask or bid
+	  */
+	void processSale(orderBookEntry& sale);
+
 	/**
 	  * @brief This function will check if the wallet has enough money to ask or bid
 	  * @param order - The order that the user wants to ask or bid
@@ -55,6 +64,13 @@ public:
 	  * @note The string representation of the wallet is in the format of:
 	  */
 	std::string toString();
+
+	/**
+	  * @brief This function will update the wallet after a transaction
+	  * @param order - The order that the user wants to ask or bid
+	  * @return void
+	  * @note This function will call the checkWallet function to check if the wallet has enough money to ask or bid
+	  */
 
 private:
 	std::map<std::string, double> currencies;

@@ -7,7 +7,7 @@ orderBook::orderBook(std::string filename)
 }
 
 /**
-  * @brief Get a list of all the known products present in the order book 
+  * @brief Get a list of all the known products present in the order book
   * @return std::vector<orderBookEntry> - The available products
   */
 std::vector<std::string> orderBook::getKnownProducts()
@@ -158,28 +158,24 @@ void orderBook::insertOrder(orderBookEntry& order)
   * @param  product - The product to match
   * @param  Timestamp - The timestamp frame the matching occurs at
   * @return std::vector<orderBookEntry> - The sales that occured
-  * @note   The algorithm is as follows:
-  * 1. Get the asks for the product and timestamp
-  * 2. Get the bids for the product and timestamp
-  * 3. Sort asks ascending by price
-  * 4. Sort bids descending by price
-  * 5. For each ask
-  * 6. For each bid
-  * 7. If bid price >= ask price
-  * 8. Create a sale with the ask price
   */
 std::vector<orderBookEntry> orderBook::matchingEngine(std::string product, std::string timestamp)
 {
 	// Get the asks for the product and timestamp
 	std::vector<orderBookEntry> asks = getOrders(product, orderBookType::ask, timestamp);
+
 	// Get the bids for the product and timestamp
 	std::vector<orderBookEntry> bids = getOrders(product, orderBookType::bid, timestamp);
+
 	// The sales that occured
 	std::vector<orderBookEntry> sales;
+
 	// Sort asks ascending by price
 	std::sort(asks.begin(), asks.end(), orderBookEntry::compareByPriceAsc);
+
 	// Sort bids descending by price
 	std::sort(bids.begin(), bids.end(), orderBookEntry::compareByPriceDesc);
+
 	// For each ask
 	for (orderBookEntry& asksEntry : asks)
 	{
@@ -195,8 +191,19 @@ std::vector<orderBookEntry> orderBook::matchingEngine(std::string product, std::
 					0.0,
 					timestamp,
 					product,
-					orderBookType::bid
+					orderBookType::asksale
 				};
+
+				if (bidsEntry.username == "simuser")
+				{
+					sale.username = "simuser";
+					sale.orderType = orderBookType::bidsale;
+				}
+				else if (asksEntry.username == "simuser")
+				{
+					sale.username = "simuser";
+					sale.orderType = orderBookType::asksale;
+				}
 
 				if (bidsEntry.amount == asksEntry.amount)
 				{
@@ -219,7 +226,7 @@ std::vector<orderBookEntry> orderBook::matchingEngine(std::string product, std::
 					break;
 
 				}
-				else if (bidsEntry.amount < asksEntry.amount)
+				else if ((bidsEntry.amount < asksEntry.amount) && (bidsEntry.amount > 0))
 				{
 					sale.amount = bidsEntry.amount;
 
@@ -233,9 +240,7 @@ std::vector<orderBookEntry> orderBook::matchingEngine(std::string product, std::
 				}
 				else
 				{
-					red();
-					std::cout << "orderBook::matchAsksToBids-> Something went wrong!" << endl;
-					reset();
+					// Do nothing
 				}
 			} // End of if bid price >= ask price
 		} // End of for each bid

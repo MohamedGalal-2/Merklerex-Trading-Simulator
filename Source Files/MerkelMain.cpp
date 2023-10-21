@@ -12,6 +12,7 @@ void MerkelMain::init()
 	currentTime = orderBook.getEarliestTime();
 
 	wallet.insrtIntoWallet("BTC", 10);
+	wallet.insrtIntoWallet("ETH", 100);
 
 	// Print welcome message
 	cyan();
@@ -75,6 +76,9 @@ void MerkelMain::printMarketStats()
 		std::cout << "Max ask: " << orderBook::getHighPrice(enteries) << std::endl;
 		std::cout << "Min ask: " << orderBook::getLowPrice(enteries) << std::endl;
 		std::cout << "Total ask amount: " << orderBook::getAmountAsk(enteries) << std::endl;
+		green();
+		std::cout << "----------------------" << std::endl;
+		reset();
 	}
 }
 
@@ -101,6 +105,8 @@ void MerkelMain::makeAsk()
 		try
 		{
 			orderBookEntry entry = CSVReader::parseLine(tokens[1], tokens[2], currentTime, tokens[0], orderBookType::ask);
+			entry.username = "simuser";
+
 			if (wallet.isEnough(entry))
 			{
 				green();
@@ -149,6 +155,8 @@ void MerkelMain::enterBid()
 		try
 		{
 			orderBookEntry entry = CSVReader::parseLine(tokens[1], tokens[2], currentTime, tokens[0], orderBookType::bid);
+			entry.username = "simuser";
+
 			if (wallet.isEnough(entry))
 			{
 				green();
@@ -184,13 +192,23 @@ void MerkelMain::printWallet()
 
 void MerkelMain::gotoNextTimeFrame()
 {
-	currentTime = orderBook.getNextTime(currentTime);
+	// Print current time
 	std::vector<orderBookEntry> sales = orderBook.matchingEngine("ETH/BTC", currentTime);
+	// Print number of sales
 	std::cout << "Sales: " << sales.size() << endl;
+	// Print sales
 	for (orderBookEntry& sale : sales)
 	{
 		std::cout << "Sale: " << sale.price << " " << sale.amount << endl;
+		// Update wallet
+		if (sale.username == "simuser")
+		{
+			wallet.processSale(sale);
+		}
 	}
+
+	// Get next time frame
+	currentTime = orderBook.getNextTime(currentTime);
 	magenta();
 	std::cout << "Moving to next timeframe: " << currentTime << endl;
 	reset();

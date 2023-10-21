@@ -125,3 +125,41 @@ std::string wallet::toString()
 
 	return str;
 }
+
+void wallet::processSale(orderBookEntry& sale)
+{
+	bool result = false;
+	double outgoingAmount = 0.0;
+	double incomingAmount = 0.0;
+	std::string outgoingCurrency;
+	std::string incomingCurrency;
+	std::vector<std::string> currs;
+
+	currs = CSVReader::parse(sale.product, '/');
+
+	if (sale.orderType == orderBookType::asksale)
+	{
+		outgoingAmount = sale.amount;
+		outgoingCurrency = currs[0];
+		incomingAmount = sale.amount * sale.price;
+		incomingCurrency = currs[1];
+
+		currencies[incomingCurrency] += incomingAmount;
+		currencies[outgoingCurrency] -= outgoingAmount;
+	}
+	else if (sale.orderType == orderBookType::bidsale)
+	{
+		incomingAmount = sale.amount;
+		incomingCurrency = currs[0];
+		outgoingAmount = sale.amount * sale.price;
+		outgoingCurrency = currs[1];
+
+		currencies[incomingCurrency] += incomingAmount;
+		currencies[outgoingCurrency] -= outgoingAmount;
+	}
+	else
+	{
+		// Do nothing
+	}
+
+}
