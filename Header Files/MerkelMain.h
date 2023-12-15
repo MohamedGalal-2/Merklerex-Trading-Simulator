@@ -101,8 +101,10 @@ private:
 	std::string currentTime;
 	std::string nextTime;
 
-	orderBook orderBook{ "C:/Users/lolo7/Desktop/Projects/CPP Projects/OOP/OOP/orderBookDataSet.csv" };
-	// orderBook orderBook{ "C:/Users/lolo7/Desktop/orderBookDataSet.csv" };
+	/** 
+	  * @brief - Select the path of the order book data set
+	  */
+	orderBook orderBook{ "C:/Users/Mohamed-Galal/Desktop/Projects/CPP Programming/Merklerex-Trading-Simulator/orderBookDataSet.csv" };
 	std::vector<orderBookEntry> orders;		// Vector of order book entries
 
 	wallet wallet;
