@@ -76,4 +76,4 @@ The simulator provides a command-line interface (CLI) for interacting with the t
 Contributions to this repository are always welcome. If you would like to add a new solution or improve an existing one, feel free to submit a pull request. Please ensure that the code adheres to the repository's coding standards.
 
 ### License
-This repository contains contains my own work during studying this course. Feel free to use for any purpose.
+This repository is licensed under the MIT License. Please see the LICENSE file for more information
